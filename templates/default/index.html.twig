@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exchanger{% endblock %}
+
+{% block body %}
+<style>
+    .wrapper {
+        text-align: center;
+    }
+</style>
+
+<div class="row wrapper">
+    <div class="col-12">
+        <h1>Exchanger</h1><br>
+        <a href="{{ path('exchange_rate_index') }}" class="btn btn-primary btn-sm">Exchange Rates</a>
+    </div>
+</div>
+{% endblock %}

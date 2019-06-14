@@ -1,0 +1,29 @@
+{{ form_start(form, {'attr': {'class':'exchange-rate-form'}}) }}
+    <div class="form-group">
+        <label for="targetCurrency">{{ form_label(form.targetCurrency) }}</label>
+        {{ form_widget(form.targetCurrency) }}
+        <span class="field-errors text-danger">
+            {{ form_errors(form.targetCurrency) }}
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="rate">{{ form_label(form.rate) }}</label>
+        {{ form_widget(form.rate) }}
+        {{ form_errors(form.rate) }}
+        <span class="field-errors text-danger">
+            {{ form_errors(form.rate) }}
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="date">{{ form_label(form.date) }}</label>
+        {{ form_widget(form.date) }}
+        {{ form_errors(form.date) }}
+        <span class="field-errors text-danger">
+            {{ form_errors(form.date) }}
+        </span>
+    </div>
+
+    <button class="btn btn-primary btn-md">{{ button_label|default('Add') }}</button>
+{{ form_end(form) }}

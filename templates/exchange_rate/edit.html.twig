@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Exchange Rate: {{ exchange_rate.baseCurrency }} to {{ exchange_rate.targetCurrency }}{% endblock %}
+
+{% block body %}
+    {{ include('exchange_rate/breadcrumb.html.twig', {'action': 'edit', 'exchange_rate': exchange_rate}) }}
+    <div class="row page-header">
+        <div class="col-12 col-sm-6">
+            <h2>Edit Exchange Rate</h2>
+            <span class="badge badge-secondary">{{ exchange_rate.baseCurrency }} to {{ exchange_rate.targetCurrency }}</span>
+        </div>
+        <div class="col-12 col-sm-6 align-items-center justify-content-end d-flex">
+            <a href="{{ path('exchange_rate_index') }}" class="btn btn-success btn-sm">&laquo; Back to list</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4">
+            {{ include('exchange_rate/_form.html.twig', {'button_label': 'Edit Rate'}) }}
+        </div>
+    </div>
+{% endblock %}

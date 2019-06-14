@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exchange Rates{% endblock %}
+
+{% block body %}
+    {{ include('exchange_rate/breadcrumb.html.twig') }}
+    <div class="row page-header">
+        <div class="col-12 col-sm-6">
+            <h2>Exchange Rates</h2>
+        </div>
+        <div class="col-12 col-sm-6 align-items-center justify-content-end d-flex">
+            <a href="{{ path('exchange_rate_new') }}" class="btn btn-success btn-sm">Create new</a>
+            &nbsp;&nbsp;
+            <a href="{{ path('exchange_rate_refresh') }}" class="btn btn-primary btn-sm">Refresh Rates</a>
+        </div>
+
+        <div class="col-12">
+            {{ include('inc/flash_messages.html.twig') }}
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered table-md table-hover">
+                <thead>
+                <tr>
+                    <th>Currency</th>
+                    <th>Rate</th>
+                    <th>Date</th>
+                    <th>Last Updated At</th>
+                    <th width="120"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for exchange_rate in exchange_rates %}
+                    <tr>
+                        <td>{{ exchange_rate.targetCurrency }}</td>
+                        <td>{{ exchange_rate.rate }}</td>
+                        <td>{{ exchange_rate.date ? exchange_rate.date|date('d/m/Y') : '' }}</td>
+                        <td>{{ exchange_rate.updatedAt ? exchange_rate.updatedAt|date('d/m/Y h:i A') : '-' }}</td>
+                        <td>
+                            <a href="{{ path('exchange_rate_refresh', {'currency': exchange_rate.targetCurrency}) }}" title="Refresh" class="text-success rate-action-button"><i class="fa fa-refresh" aria-hidden="true"></i></a>&nbsp;
+                            <a href="{{ path('exchange_rate_edit', {'id': exchange_rate.id}) }}" title="Edit" class="text-primary rate-action-button"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                            &nbsp;
+                            {{ include('exchange_rate/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8">No rates found.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

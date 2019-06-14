@@ -1,0 +1,35 @@
+.container.main {
+    padding-top: 30px;
+}
+.page-header {
+    padding-bottom: 20px;
+}
+.delete-form-button {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    cursor: pointer;
+}
+.rate-action-button {
+    float: left;
+    margin-right: 10px;
+}
+.rate-action-button:last-child {
+    margin: 0;
+}
+.exchange-rate-form label {
+    margin-bottom: 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+.field-errors ul {
+    margin: 0;
+    list-style: none;
+    padding-left: 0px;
+    font-size: 12px;
+    padding-top: 2px;
+}
+h2 {
+    margin-bottom: 0;
+}

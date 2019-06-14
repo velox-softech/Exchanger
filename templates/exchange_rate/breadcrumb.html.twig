@@ -1,0 +1,20 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ path('homepage') }}">Home</a></li>
+        <li class="breadcrumb-item" aria-current="page">
+            {% if action is defined %}
+                <a href="{{ path('exchange_rate_index') }}">
+            {% endif %}
+            Exchange Rates
+            {% if action is defined %}
+                </a>
+            {% endif %}
+        </li>
+        {% if action is defined and action == 'new' %}
+            <li class="breadcrumb-item" aria-current="page">Add New</li>
+        {% endif %}
+        {% if action is defined and action == 'edit' %}
+            <li class="breadcrumb-item" aria-current="page">Edit {{ exchange_rate.baseCurrency }} to {{ exchange_rate.targetCurrency }}</li>
+        {% endif %}
+    </ol>
+</nav>
